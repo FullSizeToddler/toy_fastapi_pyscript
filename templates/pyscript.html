@@ -1,0 +1,21 @@
+<html>
+<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+<py-env>{% for p in packages %}
+- {{ p }}
+{% endfor %}- paths:
+  - /static/process.py
+</py-env>
+
+<py-script>
+import process
+
+process.render({{ data }})
+</py-script>
+
+{% if repl %}
+<py-repl id="my-repl"  auto-generate="true"> </py-repl>
+{% endif %}
+
+</html>
